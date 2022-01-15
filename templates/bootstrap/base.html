@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% block scripts %}
+{{ moment.include_moment() }}
+{{ moment.locale('pl') }}
+{% endblock %}
+<head>
+    {% block head %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+        {% block styles %}
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}- aplikacja</title>
+    {% endblock %}
+</head>
+
+<body>
+{% block body %}
+{% block navbar %}
+<div class="navbar navbar-dark bg-dark navbar-expand-md" role="navigation">
+    <div class="container">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Przełącz użytkownika nawigacji</span>
+        </button>
+        <a class="navbar-brand" href="/">TEST</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="navbar navbar-nav navbar-expand-md">
+            <li><a href="/">Strona główna</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+    {% block page_content %} {% endblock %}
+</div>
+{% endblock %}
+
+{% endblock %}
+</body>
+</html>
